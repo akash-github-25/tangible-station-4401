@@ -1,6 +1,6 @@
 # tangible-station-4401 
 
-<a href="#"><img src="https://i.pinimg.com/originals/aa/f8/86/aaf8864c0d47f6e04635159fcf04a680.gif"  align="center"   /></a>
+<a href="#"><img src="https://media.tenor.com/fUWXo2s8trgAAAAC/teamwork.gif"  align="center"   /></a>
 
 
 
@@ -117,8 +117,8 @@
 
 
 <!-- https://thumbs.gfycat.com/MedicalBlackandwhiteHorsechestnutleafminer-max-1mb.gif -->
-##  <img width="30px" src="https://i.pinimg.com/originals/3e/f4/02/3ef4026949d1eded9f3c86d5d87581ad.gif" > how we worked while spleeping
 
+##  <img width="30px" src="https://i.pinimg.com/originals/3e/f4/02/3ef4026949d1eded9f3c86d5d87581ad.gif" > This how we debugg
 <a href="#"><img src="https://thumbs.gfycat.com/MedicalBlackandwhiteHorsechestnutleafminer-max-1mb.gif"  align="center"   /></a>
 
 
