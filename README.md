@@ -1,9 +1,7 @@
 # tangible-station-4401 
 
-<a href="#"><img src="https://i.pinimg.com/originals/aa/f8/86/aaf8864c0d47f6e04635159fcf04a680.gif"  align="center"   /></a>
 
-
-
+<img src="https://www.hrtechx.com/wp-content/uploads/2020/10/team-work.gif" width="100%">
 
 
 
@@ -117,9 +115,9 @@
 
 
 <!-- https://thumbs.gfycat.com/MedicalBlackandwhiteHorsechestnutleafminer-max-1mb.gif -->
-##  <img width="30px" src="https://i.pinimg.com/originals/3e/f4/02/3ef4026949d1eded9f3c86d5d87581ad.gif" > how we worked while spleeping
+##  <img width="30px" src="https://i.pinimg.com/originals/3e/f4/02/3ef4026949d1eded9f3c86d5d87581ad.gif" > This how we debugg
 
-<a href="#"><img src="https://thumbs.gfycat.com/MedicalBlackandwhiteHorsechestnutleafminer-max-1mb.gif"  align="center"   /></a>
+<a href="#"><img src="https://media.tenor.com/10Zdx_RXqgcAAAAM/programming-crazy.gif"  align="center"   /></a>
 
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
