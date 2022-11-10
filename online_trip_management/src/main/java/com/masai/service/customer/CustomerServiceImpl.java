@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.service.customer;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.masai.bean.Booking;
 import com.masai.bean.Customer;
+import com.masai.exception.BookingException;
 import com.masai.exception.CustomerException;
 import com.masai.repository.CustomerRepo;
 
@@ -69,15 +71,11 @@ Optional<Customer> opt= cr.findById(customer.getCustomerId());
 	}
 
 	@Override
-	public List<Customer> viewAllCustomer() throws CustomerException {
+	public List<Booking> viewAllBooking(Integer customerId) throws BookingException {
 		// TODO Auto-generated method stub
-		List<Customer> allCustomer=cr.findAll();
-		if(allCustomer!=null) {
-			return allCustomer;
-		}else {
-			throw new CustomerException("Error! can't find the Customers");
-		}
-		
+		return null;
 	}
+
+	
 
 }

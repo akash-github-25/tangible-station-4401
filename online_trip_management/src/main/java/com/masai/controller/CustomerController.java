@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.masai.bean.Customer;
 import com.masai.exception.CustomerException;
 import com.masai.repository.CustomerRepo;
-import com.masai.service.CustomerService;
+import com.masai.service.customer.CustomerService;
+
 @RestController
 public class CustomerController {
 	@Autowired
@@ -48,9 +49,9 @@ public class CustomerController {
 		Customer custom=cs.viewCustomer(customerId);
 		return new ResponseEntity<Customer>(custom,HttpStatus.OK);
 }
-	@GetMapping("/getAllCustomers")
-	public ResponseEntity<List<Customer>> viewAllCustomer() throws CustomerException{
-		List<Customer> custom=cs.viewAllCustomer();
-		return new ResponseEntity<List<Customer>>(custom,HttpStatus.OK);
-	}
+//	@GetMapping("/getAllCustomers")
+//	public ResponseEntity<List<Customer>> viewAllCustomer() throws CustomerException{
+//		List<Customer> custom=cs.v;
+//		return new ResponseEntity<List<Customer>>(custom,HttpStatus.OK);
+//	}
 }

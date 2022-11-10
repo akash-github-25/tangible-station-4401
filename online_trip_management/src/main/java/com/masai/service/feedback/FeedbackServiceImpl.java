@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.service.feedback;
 
 import java.util.List;
 import java.util.Optional;

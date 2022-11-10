@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,107 +22,111 @@ public class Customer {
 
 private Integer customerId;
 private String customerName;
-private String customerPassword;
-private String address;
-private String mobileNo;
-private String email;
+private String customerAddress;
+private String customerMobile;
+private String customerEmail;
 
 @JsonIgnore
 @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
 private List<Feedback> feedbacks = new ArrayList<>();
 
 
-	public Customer(Integer customerId, String customerName, String customerPassword, String address, String mobileNo,
-		String email, List<Feedback> feedbacks) {
+@OneToOne(cascade = CascadeType.MERGE,mappedBy = "custom")
+private User user;
+
+
+public Customer() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+
+public Customer(Integer customerId, String customerName, String customerAddress, String customerMobile,
+		String customerEmail, List<Feedback> feedbacks, User user) {
 	super();
 	this.customerId = customerId;
 	this.customerName = customerName;
-	this.customerPassword = customerPassword;
-	this.address = address;
-	this.mobileNo = mobileNo;
-	this.email = email;
+	this.customerAddress = customerAddress;
+	this.customerMobile = customerMobile;
+	this.customerEmail = customerEmail;
+	this.feedbacks = feedbacks;
+	this.user = user;
+}
+
+
+public Integer getCustomerId() {
+	return customerId;
+}
+
+
+public void setCustomerId(Integer customerId) {
+	this.customerId = customerId;
+}
+
+
+public String getCustomerName() {
+	return customerName;
+}
+
+
+public void setCustomerName(String customerName) {
+	this.customerName = customerName;
+}
+
+
+public String getCustomerAddress() {
+	return customerAddress;
+}
+
+
+public void setCustomerAddress(String customerAddress) {
+	this.customerAddress = customerAddress;
+}
+
+
+public String getCustomerMobile() {
+	return customerMobile;
+}
+
+
+public void setCustomerMobile(String customerMobile) {
+	this.customerMobile = customerMobile;
+}
+
+
+public String getCustomerEmail() {
+	return customerEmail;
+}
+
+
+public void setCustomerEmail(String customerEmail) {
+	this.customerEmail = customerEmail;
+}
+
+
+public List<Feedback> getFeedbacks() {
+	return feedbacks;
+}
+
+
+public void setFeedbacks(List<Feedback> feedbacks) {
 	this.feedbacks = feedbacks;
 }
 
 
-	public Customer() {
-		super();
-	}
+public User getUser() {
+	return user;
+}
 
 
-	public Integer getCustomerId() {
-		return customerId;
-	}
+public void setUser(User user) {
+	this.user = user;
+}
 
 
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
-	}
 
 
-	public String getCustomerName() {
-		return customerName;
-	}
 
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-
-
-	public String getCustomerPassword() {
-		return customerPassword;
-	}
-
-
-	public void setCustomerPassword(String customerPassword) {
-		this.customerPassword = customerPassword;
-	}
-
-
-	public String getAddress() {
-		return address;
-	}
-
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-
-	public String getMobileNo() {
-		return mobileNo;
-	}
-
-
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
-	}
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	public List<Feedback> getFeedbacks() {
-		return feedbacks;
-	}
-
-
-	public void setFeedbacks(List<Feedback> feedbacks) {
-		this.feedbacks = feedbacks;
-	}
-
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
