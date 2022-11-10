@@ -23,7 +23,7 @@ private LocalDateTime arrival;
 private LocalDateTime departure;
 private Integer daysOfJourney;
 
-@ManyToMany(cascade=CascadeType.ALL,mappedBy = "vehicleId")
+@ManyToMany(cascade=CascadeType.ALL,mappedBy = "seats")
 private List<Vehicle> vehicle;
 
 
