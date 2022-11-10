@@ -23,9 +23,9 @@ public class Vehicle {
  private Integer seats;
  private String  colling;
  
- @ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "travel_id", referencedColumnName = "travelId")
-	public Travels travels;
+// @ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "vehicle1_Id", referencedColumnName = "travelsId")
+//	public Travels travels;
  
  @JsonIgnore
  @ManyToMany
@@ -35,9 +35,9 @@ public class Vehicle {
  @ManyToOne(cascade = CascadeType.ALL)
   public Booking booking;
  
- @JsonIgnore
- @ManyToMany
- private List<Package> packages=new ArrayList<>();
+// @JsonIgnore
+// @ManyToMany(cascade=CascadeType.ALL,mappedBy = "vehicle")
+// private List<Package> packages=new ArrayList<>();
 
 public Vehicle(Integer vehicleId, String vehicleReg, String vehicleType, Integer seats, String colling, Travels travels,
 		List<Route> routes, Booking booking, List<Package> packages) {
@@ -47,10 +47,10 @@ public Vehicle(Integer vehicleId, String vehicleReg, String vehicleType, Integer
 	this.vehicleType = vehicleType;
 	this.seats = seats;
 	this.colling = colling;
-	this.travels = travels;
+//	this.travels = travels;
 	this.routes = routes;
 	this.booking = booking;
-	this.packages = packages;
+//	this.packages = packages;
 }
 
 public Vehicle() {
@@ -98,13 +98,13 @@ public void setColling(String colling) {
 	this.colling = colling;
 }
 
-public Travels getTravels() {
-	return travels;
-}
-
-public void setTravels(Travels travels) {
-	this.travels = travels;
-}
+//public Travels getTravels() {
+//	return travels;
+//}
+//
+//public void setTravels(Travels travels) {
+//	this.travels = travels;
+//}
 
 public List<Route> getRoutes() {
 	return routes;
@@ -122,13 +122,13 @@ public void setBooking(Booking booking) {
 	this.booking = booking;
 }
 
-public List<Package> getPackages() {
-	return packages;
-}
-
-public void setPackages(List<Package> packages) {
-	this.packages = packages;
-}
+//public List<Package> getPackages() {
+//	return packages;
+//}
+//
+//public void setPackages(List<Package> packages) {
+//	this.packages = packages;
+//}
  
  
  
