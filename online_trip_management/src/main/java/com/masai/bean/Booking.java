@@ -37,18 +37,18 @@ public class Booking {
 	@JoinColumn(name = "user_id", referencedColumnName = "userId")
 	public User user;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL,mappedBy = "book")
 	private List<Hotel> hotels=new ArrayList<>();
-	
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<Package> packages=new ArrayList<>();
+
+   @OneToMany(cascade=CascadeType.ALL)
+ private List<Packages> packages=new ArrayList<>();
 	
 	@OneToMany
-	@JoinColumn(name = "bookingid", referencedColumnName = "vehicleId")
+//	@JoinColumn(name = "bookingid", referencedColumnName = "vehicleId")
 	private List<Vehicle> vehicle=new ArrayList<>();
 
 	public Booking(Integer bookingId, String bookingType, String description, String bookingTitle,
-			LocalDate bookingDate, PayementDetails payement, User user, List<Hotel> hotels, List<Package> packages,
+			LocalDate bookingDate, PayementDetails payement, User user, List<Hotel> hotels, List<Packages> packages,
 			List<Vehicle> vehicle) {
 		super();
 		this.bookingId = bookingId;
@@ -132,11 +132,11 @@ public class Booking {
 		this.hotels = hotels;
 	}
 
-	public List<Package> getPackages() {
+	public List<Packages> getPackages() {
 		return packages;
 	}
 
-	public void setPackages(List<Package> packages) {
+	public void setPackages(List<Packages> packages) {
 		this.packages = packages;
 	}
 

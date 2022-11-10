@@ -34,18 +34,17 @@ public class Packages {
 
 	
 	
-	 @JsonIgnore
-	 @ManyToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "package_id", referencedColumnName = "packageId")
-	 public Booking booking;
+@JsonIgnore
+@ManyToOne
+public Booking booking;
 	
 	
-	
-	 @ManyToMany
+//	
+	 @ManyToMany(cascade = CascadeType.ALL)
 	 List<Hotel> hotels=new ArrayList<>();
 	
 	
-	 @ManyToMany
+	 @ManyToMany(cascade=CascadeType.ALL)
 	 private List<Vehicle> vehicle=new ArrayList<>();
 
 

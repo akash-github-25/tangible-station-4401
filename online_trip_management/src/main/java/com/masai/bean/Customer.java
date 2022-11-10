@@ -31,7 +31,7 @@ private String customerEmail;
 private List<Feedback> feedbacks = new ArrayList<>();
 
 
-@OneToOne
+@OneToOne(cascade = CascadeType.MERGE,mappedBy = "custom")
 private User user;
 
 
