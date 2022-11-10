@@ -15,14 +15,12 @@ public class Feedback {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.
-	
 	private Integer feedbackId;
-	
-	private String feedback;
+	private String description;
 	private Integer rating;
 	private LocalDate submitDate;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "custom_id", referencedColumnName = "customerId")
 	public Customer customer;
 	
@@ -36,15 +34,14 @@ public class Feedback {
 
 
 
-	public Feedback(String feedback, Integer rating, Customer customer) {
+	public Feedback(Integer feedbackId, String description, Integer rating, LocalDate submitDate, Customer customer) {
 		super();
-		this.feedback = feedback;
+		this.feedbackId = feedbackId;
+		this.description = description;
 		this.rating = rating;
+		this.submitDate = submitDate;
 		this.customer = customer;
 	}
-
-
-
 
 
 	public Integer getFeedbackId() {
@@ -55,13 +52,12 @@ public class Feedback {
 		this.feedbackId = feedbackId;
 	}
 
-
-	public String getFeedback() {
-		return feedback;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setFeedback(String feedback) {
-		this.feedback = feedback;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Integer getRating() {
@@ -79,14 +75,17 @@ public class Feedback {
 	}
 
 
+
 	public void setSubmitDate(LocalDate submitDate) {
 		this.submitDate = submitDate;
 	}
 
 
+
 	public Customer getCustomer() {
 		return customer;
 	}
+
 
 
 	public void setCustomer(Customer customer) {
