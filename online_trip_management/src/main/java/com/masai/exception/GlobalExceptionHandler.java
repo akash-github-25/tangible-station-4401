@@ -41,6 +41,46 @@ public class GlobalExceptionHandler {
 	return new ResponseEntity<>(err,HttpStatus.BAD_REQUEST);
 	}
 	
+
+	@ExceptionHandler(TravelsException.class)
+	public ResponseEntity<MyErrorDetails> ExceptionHandler(TravelsException se, WebRequest req) {
+		
+		MyErrorDetails err= new MyErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(se.getMessage());
+		err.setDetails(req.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(err,HttpStatus.BAD_REQUEST);
+		
+	}
+	
+
+	@ExceptionHandler(RouteException.class)
+	public ResponseEntity<MyErrorDetails> ExceptionHandler(RouteException se, WebRequest req) {
+		
+		MyErrorDetails err= new MyErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(se.getMessage());
+		err.setDetails(req.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(err,HttpStatus.BAD_REQUEST);
+		
+	}
+	
+
+	@ExceptionHandler(BusException.class)
+	public ResponseEntity<MyErrorDetails> ExceptionHandler(BusException se, WebRequest req) {
+		
+		MyErrorDetails err= new MyErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(se.getMessage());
+		err.setDetails(req.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(err,HttpStatus.BAD_REQUEST);
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
