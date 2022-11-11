@@ -1,5 +1,6 @@
 package com.masai.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,8 +30,8 @@ public class Hotel {
 	@ManyToOne
 	private Booking book;
 	
-	 @ManyToMany(cascade = CascadeType.ALL,mappedBy = "Hotel")
-		public List<Package> packages;
+	 @ManyToMany(cascade = CascadeType.ALL,mappedBy = "hotels")
+		public List<Packages> packages=new ArrayList<>();
 
 	public Hotel() {
 		super();
@@ -38,7 +39,7 @@ public class Hotel {
 	}
 
 	public Hotel(Integer hotelId, String hotelName, String hotelType, String hotelDescription, String hotelAddress,
-			Integer hotelRent, String hotelStatus, Integer hotelRooms, Booking book, List<Package> packages) {
+			Integer hotelRent, String hotelStatus, Integer hotelRooms, Booking book, List<Packages> packages) {
 		super();
 		this.hotelId = hotelId;
 		this.hotelName = hotelName;
@@ -124,11 +125,11 @@ public class Hotel {
 		this.book = book;
 	}
 
-	public List<Package> getPackages() {
+	public List<Packages> getPackages() {
 		return packages;
 	}
 
-	public void setPackages(List<Package> packages) {
+	public void setPackages(List<Packages> packages) {
 		this.packages = packages;
 	}
 

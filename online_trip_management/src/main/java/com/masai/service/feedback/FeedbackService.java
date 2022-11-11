@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.service.feedback;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import com.masai.exception.FeedbackException;
 
 public interface FeedbackService {
 	
-public Feedback addFeedback(Feedback feedback) throws FeedbackException;
+public Feedback addFeedback(Feedback feedback) throws FeedbackException,CustomerException;
 public Feedback findByFeedbackId(Integer feedbackId) throws FeedbackException;
 public List<Feedback> findByCustomerId(Integer customerId) throws FeedbackException,CustomerException;
 public List<Feedback> viewAllFeedback() throws FeedbackException;

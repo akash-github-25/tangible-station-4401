@@ -17,8 +17,9 @@ import com.masai.bean.Customer;
 import com.masai.bean.Feedback;
 import com.masai.exception.CustomerException;
 import com.masai.exception.FeedbackException;
-import com.masai.service.CustomerService;
-import com.masai.service.FeedbackService;
+import com.masai.service.customer.CustomerService;
+import com.masai.service.feedback.FeedbackService;
+
 
 @RestController
 public class FeedbackController {

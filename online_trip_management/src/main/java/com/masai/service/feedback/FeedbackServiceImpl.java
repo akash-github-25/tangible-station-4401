@@ -1,4 +1,4 @@
-package com.masai.service;
+package com.masai.service.feedback;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,12 +22,18 @@ public class FeedbackServiceImpl implements FeedbackService{
 	public CustomerRepo cr;
 	
 	@Override
-	public Feedback addFeedback(Feedback feedback) throws FeedbackException {
+	public Feedback addFeedback(Feedback feedback) throws FeedbackException, CustomerException {
 //		// TODO Auto-generated method stub
-//		Customer c=feedback.getCustomer();
-//		List<Feedback> v=c.getFeedbacks();
-//		v.add(feedback);
-//		cr.save(c);
+		Integer c=feedback.getCustomerId();
+		Optional<Customer> c1=cr.findById(c);
+		if(!c1.isPresent()) {
+			throw new CustomerException("Customer not found");
+		}
+		Customer custom=c1.get();
+		List<Feedback> x=custom.getFeedbacks();
+		x.add(feedback);
+		custom.setFeedbacks(x);
+		
 		Feedback fb=fr.save(feedback);
 		if(fb!=null) {
 			return fb;

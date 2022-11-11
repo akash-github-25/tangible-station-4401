@@ -23,9 +23,9 @@ public class Travels {
  private String travelsContact;
  private String travelsAddress;
  
- @JsonIgnore
- @OneToMany(cascade = CascadeType.ALL,mappedBy = "Travel")
- private List<Vehicle> vehicle = new ArrayList<>();
+// @JsonIgnore
+// @OneToMany(cascade = CascadeType.ALL,mappedBy = "Travel")
+// private List<Vehicle> vehicle = new ArrayList<>();
  
 	@JsonIgnore
 	@OneToOne
@@ -39,7 +39,7 @@ public class Travels {
 		this.travelsEmail = travelsEmail;
 		this.travelsContact = travelsContact;
 		this.travelsAddress = travelsAddress;
-		this.vehicle = vehicle;
+//		this.vehicle = vehicle;
 		this.user = user;
 	}
 
@@ -88,13 +88,13 @@ public class Travels {
 		this.travelsAddress = travelsAddress;
 	}
 
-	public List<Vehicle> getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(List<Vehicle> vehicle) {
-		this.vehicle = vehicle;
-	}
+//	public List<Vehicle> getVehicle() {
+//		return vehicle;
+//	}
+//
+//	public void setVehicle(List<Vehicle> vehicle) {
+//		this.vehicle = vehicle;
+//	}
 
 	public User getUser() {
 		return user;
