@@ -16,30 +16,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Travels {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.	
- private Integer travelsId;
+//	@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.	
+ private Integer travelsId=0;
  private String travelsName;
  private String travelsEmail;
  private String travelsContact;
  private String travelsAddress;
  
 // @JsonIgnore
-// @OneToMany(cascade = CascadeType.ALL,mappedBy = "Travel")
-// private List<Vehicle> vehicle = new ArrayList<>();
+ @OneToMany
+ private List<Vehicle> vehicle = new ArrayList<>();
  
 	@JsonIgnore
 	@OneToOne
 	private User user;
 
-	public Travels(Integer travelsId, String travelsName, String travelsEmail, String travelsContact,
+	public Travels(String travelsName, String travelsEmail, String travelsContact,
 			String travelsAddress, List<Vehicle> vehicle, User user) {
 		super();
-		this.travelsId = travelsId;
+//		this.travelsId = travelsId;
 		this.travelsName = travelsName;
 		this.travelsEmail = travelsEmail;
 		this.travelsContact = travelsContact;
 		this.travelsAddress = travelsAddress;
-//		this.vehicle = vehicle;
+		this.vehicle = vehicle;
 		this.user = user;
 	}
 
@@ -88,13 +88,13 @@ public class Travels {
 		this.travelsAddress = travelsAddress;
 	}
 
-//	public List<Vehicle> getVehicle() {
-//		return vehicle;
-//	}
-//
-//	public void setVehicle(List<Vehicle> vehicle) {
-//		this.vehicle = vehicle;
-//	}
+	public List<Vehicle> getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(List<Vehicle> vehicle) {
+		this.vehicle = vehicle;
+	}
 
 	public User getUser() {
 		return user;

@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Report {
 	@Id
@@ -16,17 +18,22 @@ private Integer reportId;
 private String reportName;
 private String reportType;
 private String reportDescription;
+private Integer adminId;
 
+
+@JsonIgnore
 @ManyToOne(cascade = CascadeType.ALL)
-@JoinColumn(name = "admin_id", referencedColumnName = "adminId")
+//@JoinColumn(name = "admin_id", referencedColumnName = "adminId")
 public Admin admin;
 
-public Report(Integer reportId, String reportName, String reportType, String reportDescription, Admin admin) {
+public Report(Integer reportId, String reportName, String reportType, String reportDescription, Integer adminId,
+		Admin admin) {
 	super();
 	this.reportId = reportId;
 	this.reportName = reportName;
 	this.reportType = reportType;
 	this.reportDescription = reportDescription;
+	this.adminId = adminId;
 	this.admin = admin;
 }
 
@@ -65,6 +72,14 @@ public String getReportDescription() {
 
 public void setReportDescription(String reportDescription) {
 	this.reportDescription = reportDescription;
+}
+
+public Integer getAdminId() {
+	return adminId;
+}
+
+public void setAdminId(Integer adminId) {
+	this.adminId = adminId;
 }
 
 public Admin getAdmin() {

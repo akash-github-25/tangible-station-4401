@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
@@ -21,36 +22,49 @@ public class Vehicle {
  private String vehicleReg;
  private String vehicleType;
  private Integer seats;
- private String  colling;
+ private String  cooling;
+ private Integer travelsId;
  
-// @ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "vehicle1_Id", referencedColumnName = "travelsId")
-//	public Travels travels;
+ public Integer getTravelsId() {
+	return travelsId;
+}
+
+public void setTravelsId(Integer travelsId) {
+	this.travelsId = travelsId;
+}
+@JsonIgnore
+@ManyToOne(cascade = CascadeType.ALL)
+ @JoinColumn(name = "veh_id", referencedColumnName = "travelsId")
+ public Travels travels;
+ 
+// @JsonIgnore
+ @ManyToMany(cascade = CascadeType.ALL,mappedBy = "vehicle")
+ private List<Route> routes=new ArrayList<>();
+ 
+ 
+ 
+ @JsonIgnore
+	@OneToMany
+//	@JoinColumn(name = "bookingid", referencedColumnName = "vehicleId")
+	private List<Booking> book=new ArrayList<>();
  
  @JsonIgnore
  @ManyToMany
- private List<Route> routes=new ArrayList<>();
- 
- @JsonIgnore
- @ManyToOne(cascade = CascadeType.ALL)
-  public Booking booking;
- 
-// @JsonIgnore
-// @ManyToMany(cascade=CascadeType.ALL,mappedBy = "vehicle")
-// private List<Package> packages=new ArrayList<>();
+ private List<Packages> packages=new ArrayList<>();
 
-public Vehicle(Integer vehicleId, String vehicleReg, String vehicleType, Integer seats, String colling, Travels travels,
-		List<Route> routes, Booking booking, List<Package> packages) {
+public Vehicle(Integer vehicleId, String vehicleReg, String vehicleType, Integer seats, String cooling,
+		Integer travelsId, Travels travels, List<Route> routes, List<Booking> book, List<Packages> packages) {
 	super();
 	this.vehicleId = vehicleId;
 	this.vehicleReg = vehicleReg;
 	this.vehicleType = vehicleType;
 	this.seats = seats;
-	this.colling = colling;
-//	this.travels = travels;
+	this.cooling = cooling;
+	this.travelsId = travelsId;
+	this.travels = travels;
 	this.routes = routes;
-	this.booking = booking;
-//	this.packages = packages;
+	this.book = book;
+	this.packages = packages;
 }
 
 public Vehicle() {
@@ -90,21 +104,21 @@ public void setSeats(Integer seats) {
 	this.seats = seats;
 }
 
-public String getColling() {
-	return colling;
+public String getCooling() {
+	return cooling;
 }
 
-public void setColling(String colling) {
-	this.colling = colling;
+public void setColling(String cooling) {
+	this.cooling = cooling;
 }
 
-//public Travels getTravels() {
-//	return travels;
-//}
-//
-//public void setTravels(Travels travels) {
-//	this.travels = travels;
-//}
+public Travels getTravels() {
+	return travels;
+}
+
+public void setTravels(Travels travels) {
+	this.travels = travels;
+}
 
 public List<Route> getRoutes() {
 	return routes;
@@ -114,25 +128,23 @@ public void setRoutes(List<Route> routes) {
 	this.routes = routes;
 }
 
-public Booking getBooking() {
-	return booking;
+public List<Booking> getBook() {
+	return book;
 }
 
-public void setBooking(Booking booking) {
-	this.booking = booking;
+public void setBook(List<Booking> book) {
+	this.book = book;
 }
 
-//public List<Package> getPackages() {
-//	return packages;
-//}
-//
-//public void setPackages(List<Package> packages) {
-//	this.packages = packages;
-//}
- 
- 
- 
- 
+public List<Packages> getPackages() {
+	return packages;
+}
+
+public void setPackages(List<Packages> packages) {
+	this.packages = packages;
+}
+
+
  
 	
 }
