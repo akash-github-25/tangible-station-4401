@@ -33,7 +33,7 @@ public class FeedbackServiceImpl implements FeedbackService{
 		List<Feedback> x=custom.getFeedbacks();
 		x.add(feedback);
 		custom.setFeedbacks(x);
-		
+		cr.save(custom);
 		Feedback fb=fr.save(feedback);
 		if(fb!=null) {
 			return fb;
