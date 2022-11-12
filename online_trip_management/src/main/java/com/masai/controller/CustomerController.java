@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masai.bean.Customer;
@@ -33,14 +34,14 @@ public class CustomerController {
 	}
 	
 	@PutMapping("/updateCustomer")
-	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) throws CustomerException{
-		Customer custom=cs.updateCustomer(customer);
+	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer,@RequestParam("key") String key) throws CustomerException{
+		Customer custom=cs.updateCustomer(customer,key);
 		return new ResponseEntity<Customer>(custom,HttpStatus.ACCEPTED);	
 	}
 	
 	@DeleteMapping("/deleteCustomer/{customerId}")
-	public ResponseEntity<Customer> deleteCustomer(@PathVariable("customerId") Integer customerId) throws CustomerException{
-		Customer custom=cs.deleteCustomer(cr.findById(customerId).get());
+	public ResponseEntity<Customer> deleteCustomer(@PathVariable("customerId") Integer customerId,@RequestParam("key") String key) throws CustomerException{
+		Customer custom=cs.deleteCustomer(cr.findById(customerId).get(),key);
 		return new ResponseEntity<Customer>(custom,HttpStatus.OK);
 	}
 	
