@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Admin {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.	
- private Integer adminId;
+//	@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.	
+ private Integer adminId=0;
  private String adminName;
  private String adminEmail;
  private String adminMobile;
@@ -26,15 +26,15 @@ public class Admin {
  @OneToMany(cascade = CascadeType.ALL,mappedBy = "admin")
  private List<Report> reports = new ArrayList<>();
  
- 
- @OneToOne
+// @JsonIgnore
+ @OneToOne(cascade = CascadeType.MERGE,mappedBy = "admin")
  private User user;
 
 
-public Admin(Integer adminId, String adminName, String adminEmail, String adminMobile, List<Report> reports,
+public Admin(String adminName, String adminEmail, String adminMobile, List<Report> reports,
 		User user) {
 	super();
-	this.adminId = adminId;
+//	this.adminId = adminId;
 	this.adminName = adminName;
 	this.adminEmail = adminEmail;
 	this.adminMobile = adminMobile;

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -27,29 +28,38 @@ public class Booking {
 	private LocalDate bookingDate;
 	
 
-
+    @JsonIgnore
 	@OneToOne(cascade=CascadeType.ALL)
 	private PayementDetails payement;
 	
 	
+	private Integer userId;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id", referencedColumnName = "userId")
-	public User user;
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	public User user;
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy = "book")
-	private List<Hotel> hotels=new ArrayList<>();
-
-   @OneToMany(cascade=CascadeType.ALL)
- private List<Packages> packages=new ArrayList<>();
+//	
+//	@JsonIgnore
+	@ManyToOne
+//	@JoinColumn(name = "bookingId", referencedColumnName = "hotelId")
+	private Hotel hotel;
 	
-	@OneToMany
-//	@JoinColumn(name = "bookingid", referencedColumnName = "vehicleId")
-	private List<Vehicle> vehicle=new ArrayList<>();
+	
+	
+//	@JsonIgnore
+	@ManyToOne
+//	@JoinColumn(name = "bookingId", referencedColumnName = "packageId")
+	public Packages packages;
+    
+//	
+//	@JsonIgnore
+	 @ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "bookingId", referencedColumnName = "vehicleId")
+	  public Vehicle vehicle;
 
 	public Booking(Integer bookingId, String bookingType, String description, String bookingTitle,
-			LocalDate bookingDate, PayementDetails payement, User user, List<Hotel> hotels, List<Packages> packages,
-			List<Vehicle> vehicle) {
+			LocalDate bookingDate, PayementDetails payement, Integer userId, Hotel hotel, Packages packages,
+			Vehicle vehicle) {
 		super();
 		this.bookingId = bookingId;
 		this.bookingType = bookingType;
@@ -57,14 +67,15 @@ public class Booking {
 		this.bookingTitle = bookingTitle;
 		this.bookingDate = bookingDate;
 		this.payement = payement;
-		this.user = user;
-		this.hotels = hotels;
+		this.userId = userId;
+		this.hotel = hotel;
 		this.packages = packages;
 		this.vehicle = vehicle;
 	}
 
 	public Booking() {
 		super();
+		bookingDate=LocalDate.now();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -116,35 +127,35 @@ public class Booking {
 		this.payement = payement;
 	}
 
-	public User getUser() {
-		return user;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
-	public List<Hotel> getHotels() {
-		return hotels;
+	public Hotel getHotel() {
+		return hotel;
 	}
 
-	public void setHotels(List<Hotel> hotels) {
-		this.hotels = hotels;
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 
-	public List<Packages> getPackages() {
+	public Packages getPackages() {
 		return packages;
 	}
 
-	public void setPackages(List<Packages> packages) {
+	public void setPackages(Packages packages) {
 		this.packages = packages;
 	}
 
-	public List<Vehicle> getVehicle() {
+	public Vehicle getVehicle() {
 		return vehicle;
 	}
 
-	public void setVehicle(List<Vehicle> vehicle) {
+	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
 

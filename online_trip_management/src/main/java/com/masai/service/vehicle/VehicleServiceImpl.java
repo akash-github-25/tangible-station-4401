@@ -12,6 +12,7 @@ import com.masai.exception.TravelsException;
 import com.masai.exception.VehicleException;
 import com.masai.repository.TravelsRepo;
 import com.masai.repository.VehicleRepo;
+import com.masai.service.travels.TravelsService;
 
 @Service
 public class VehicleServiceImpl implements VehicleService{
@@ -20,6 +21,9 @@ public class VehicleServiceImpl implements VehicleService{
 	
 	@Autowired
 	private TravelsRepo tr;
+	
+	@Autowired
+	private TravelsService ts;
 		
 	@Override
 	public Vehicle addVehicle(Vehicle vehicle,Integer travelsId) throws VehicleException, TravelsException {
@@ -31,8 +35,10 @@ public class VehicleServiceImpl implements VehicleService{
 		List<Vehicle> v=t1.getVehicle();
 		v.add(vehicle);
 		t1.setVehicle(v);
-		
+
+		vehicle.setTravelsId(travelsId);
 		Vehicle vh =repo.save(vehicle);
+		System.out.println(vh);
 		if(vh!=null) {
 			return vh;
 		}else {

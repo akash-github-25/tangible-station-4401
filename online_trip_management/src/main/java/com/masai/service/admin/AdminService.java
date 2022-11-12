@@ -13,7 +13,7 @@ public interface AdminService {
 	public Customer updateCustomer(Customer customer)throws CustomerException;
 	public Customer deleteCustomer(Customer customer)throws CustomerException;
 	public Customer viewCustomer(Integer customerId)throws CustomerException;
-	public List<Customer> viewAllCustomer()throws CustomerException;
+	public List<Customer> viewAllCustomer(String key)throws CustomerException;
 	
 	
 }

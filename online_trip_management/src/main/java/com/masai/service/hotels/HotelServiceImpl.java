@@ -22,6 +22,7 @@ public HotelRepo hr;
 	@Override
 	public Hotel addHotels(Hotel hotel) throws HotelException {
 		// TODO Auto-generated method stub
+	
 		Hotel fb=hr.save(hotel);
 		if(fb!=null) {
 			return fb;

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
@@ -25,11 +26,13 @@ public class Hotel {
 	private Integer hotelRent;
 	private String hotelStatus;
 	private Integer hotelRooms;
+//	private Integer BookingId;
 	
 	@JsonIgnore
-	@ManyToOne
-	private Booking book;
+	@OneToMany(cascade=CascadeType.ALL,mappedBy = "hotel")
+	private List<Booking> book=new ArrayList<>();
 	
+	@JsonIgnore
 	 @ManyToMany(cascade = CascadeType.ALL,mappedBy = "hotels")
 		public List<Packages> packages=new ArrayList<>();
 
@@ -39,7 +42,7 @@ public class Hotel {
 	}
 
 	public Hotel(Integer hotelId, String hotelName, String hotelType, String hotelDescription, String hotelAddress,
-			Integer hotelRent, String hotelStatus, Integer hotelRooms, Booking book, List<Packages> packages) {
+			Integer hotelRent, String hotelStatus, Integer hotelRooms, List<Booking> book, List<Packages> packages) {
 		super();
 		this.hotelId = hotelId;
 		this.hotelName = hotelName;
@@ -117,11 +120,11 @@ public class Hotel {
 		this.hotelRooms = hotelRooms;
 	}
 
-	public Booking getBook() {
+	public List<Booking> getBook() {
 		return book;
 	}
 
-	public void setBook(Booking book) {
+	public void setBook(List<Booking> book) {
 		this.book = book;
 	}
 
@@ -132,6 +135,7 @@ public class Hotel {
 	public void setPackages(List<Packages> packages) {
 		this.packages = packages;
 	}
+
 
 	
 
