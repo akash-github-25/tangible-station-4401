@@ -1,6 +1,7 @@
 package com.masai.bean;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,20 +12,36 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Route {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.	
-private Integer routeId;
+private Integer routeId=0;
 private Integer price;
 private String startfrom;
 private String destination;
-private LocalDateTime arrival;
-private LocalDateTime departure;
+private String arrival;
+private String departure;
 private Integer daysOfJourney;
+private Integer vehicleId;
 
-@ManyToMany(cascade=CascadeType.ALL,mappedBy = "seats")
-private List<Vehicle> vehicle;
+@JsonIgnore
+@ManyToMany(cascade=CascadeType.ALL)
+private List<Vehicle> vehicle=new ArrayList<>();
+
+
+
+public Integer getVehicleId() {
+	return vehicleId;
+}
+
+
+
+public void setVehicleId(Integer vehicleId) {
+	this.vehicleId = vehicleId;
+}
 
 
 
@@ -76,25 +93,25 @@ public void setDestination(String destination) {
 
 
 
-public LocalDateTime getArrival() {
+public String getArrival() {
 	return arrival;
 }
 
 
 
-public void setArrival(LocalDateTime arrival) {
+public void setArrival(String arrival) {
 	this.arrival = arrival;
 }
 
 
 
-public LocalDateTime getDeparture() {
+public String getDeparture() {
 	return departure;
 }
 
 
 
-public void setDeparture(LocalDateTime departure) {
+public void setDeparture(String departure) {
 	this.departure = departure;
 }
 
@@ -126,13 +143,15 @@ public void setVehicle(List<Vehicle> vehicle) {
 
 public Route() {
 	super();
+//	arrival=LocalDateTime.now();
+//	departure=LocalDateTime.now();
 	// TODO Auto-generated constructor stub
 }
 
 
 
-public Route(Integer routeId, Integer price, String startfrom, String destination, LocalDateTime arrival,
-		LocalDateTime departure, Integer daysOfJourney, List<Vehicle> vehicle) {
+public Route(Integer routeId, Integer price, String startfrom, String destination, String arrival,
+		String departure, Integer daysOfJourney, List<Vehicle> vehicle) {
 	super();
 	this.routeId = routeId;
 	this.price = price;

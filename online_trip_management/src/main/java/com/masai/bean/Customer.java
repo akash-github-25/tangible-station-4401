@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -18,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Customer {
 	
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.
+//@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.
 
-private Integer customerId;
+private Integer customerId=0;
 private String customerName;
 private String customerAddress;
 private String customerMobile;
@@ -30,8 +31,9 @@ private String customerEmail;
 @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
 private List<Feedback> feedbacks = new ArrayList<>();
 
-
-@OneToOne(cascade = CascadeType.MERGE,mappedBy = "custom")
+@JsonIgnore
+@OneToOne
+@JoinColumn(name = "customerId", referencedColumnName = "userId")
 private User user;
 
 
@@ -41,10 +43,10 @@ public Customer() {
 }
 
 
-public Customer(Integer customerId, String customerName, String customerAddress, String customerMobile,
+public Customer(String customerName, String customerAddress, String customerMobile,
 		String customerEmail, List<Feedback> feedbacks, User user) {
 	super();
-	this.customerId = customerId;
+//	this.customerId = customerId;
 	this.customerName = customerName;
 	this.customerAddress = customerAddress;
 	this.customerMobile = customerMobile;

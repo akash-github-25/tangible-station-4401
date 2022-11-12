@@ -22,7 +22,7 @@ public class User {
 	private String userPassword;
 	
 	@JsonIgnore
-	@OneToOne
+	@OneToOne(mappedBy="user")
 	private Customer custom;
 	
 	@JsonIgnore
@@ -33,9 +33,9 @@ public class User {
 	@OneToOne
 	private Travels travels;
 	
-	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
-	private List<Booking> Booking = new ArrayList<>();
+//	@JsonIgnore
+//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+//	private List<Booking> Booking = new ArrayList<>();
 	
 	public Integer getUserId() {
 		return userId;
@@ -63,6 +63,7 @@ public class User {
 
 	public User() {
 		super();
+		
 		// TODO Auto-generated constructor stub
 	}
 

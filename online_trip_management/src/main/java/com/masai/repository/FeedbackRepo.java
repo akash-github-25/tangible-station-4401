@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.masai.bean.Feedback;
 
 public interface FeedbackRepo extends JpaRepository<Feedback, Integer>{
-	@Query("select f from Feedback f where f.customer=(from Customer where customerId=?1) ")
+	@Query("select f from Feedback f where f.CustomerId=?1")
  public List<Feedback> viewFeedbackByCustomerId(Integer custom_id);
 }

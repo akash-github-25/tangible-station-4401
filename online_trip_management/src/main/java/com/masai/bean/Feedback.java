@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Feedback {
 	
@@ -19,7 +21,9 @@ public class Feedback {
 	private String description;
 	private Integer rating;
 	private LocalDate submitDate;
+	private Integer CustomerId;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "custom_id", referencedColumnName = "customerId")
 	public Customer customer;
@@ -42,6 +46,18 @@ public class Feedback {
 		this.submitDate = submitDate;
 		this.customer = customer;
 	}
+
+
+	public Integer getCustomerId() {
+		return CustomerId;
+	}
+
+
+
+	public void setCustomerId(Integer customerId) {
+		CustomerId = customerId;
+	}
+
 
 
 	public Integer getFeedbackId() {

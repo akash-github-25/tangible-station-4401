@@ -36,6 +36,7 @@ public PayementDetails(Integer payementId, String payementMethod, LocalDate paye
 
 public PayementDetails() {
 	super();
+	payementDate=LocalDate.now();
 	// TODO Auto-generated constructor stub
 }
 
