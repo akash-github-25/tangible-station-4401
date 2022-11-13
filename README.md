@@ -59,15 +59,6 @@
   - If the customer want can cancel the booking.
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
-## Technology Used
-
-- **JAVA**
-- **Spring**
-- **Spring Boot**
-- **Spring data JPA**
-- **Spring security**
-- **Hibernate**
-- **MySQL**
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
@@ -75,11 +66,11 @@
 
 <a href="">**Video Drive Link** </a>
 
-### E-R Diagram Of Covid-19 Application
+### E-R Diagram Of  Application
 
 ---
-<!-- 
-<img src="tangible-station-4401/Asset/ER_Diagram_TMS.jpeg" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"> -->
+
+<img src="https://github.com/akash-github-25/tangible-station-4401/blob/main/ER%20Diagram.jpeg" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"> 
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
