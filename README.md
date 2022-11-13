@@ -64,9 +64,16 @@
 
 ## Video Explainer of flow control
 
-<a href="">**Video Drive Link** </a>
+<a href="https://drive.google.com/file/d/1redTBHp9SlBXjTRZ464B-JDW7JYNphBT/view">**Video Drive Link** </a>
 
-### E-R Diagram Of  Application
+
+## Presentation  of Application 
+
+
+<a href="https://github.com/akash-github-25/tangible-station-4401/blob/main/Presentation.pptx">**Video Drive Link** </a>
+
+
+## E-R Digram of Application 
 
 ---
 
