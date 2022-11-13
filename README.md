@@ -70,7 +70,7 @@
 ## Presentation  of Application 
 
 
-<a href="https://github.com/akash-github-25/tangible-station-4401/blob/main/Presentation.pptx">**PPT Link** </a>
+<a href="https://docs.google.com/presentation/d/1RYZl2LMi145-N6QlpuCRUKROo7vEhpJO/edit?usp=sharing&ouid=115573521711169005136&rtpof=true&sd=true">**PPT Link** </a>
 
 
 ## E-R Digram of Application 
