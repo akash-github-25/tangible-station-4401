@@ -7,12 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.bean.Travels;
+import com.masai.bean.User;
 import com.masai.exception.TravelsException;
 import com.masai.repository.TravelsRepo;
+import com.masai.repository.UserRepo;
 @Service
 public class TravelsServiceImpl implements TravelsService{
 	@Autowired
 	private TravelsRepo repo;
+	@Autowired
+	private UserRepo ur;
 
 	@Override
 	public Travels addTravels(Travels travels) throws TravelsException {
@@ -20,6 +24,14 @@ public class TravelsServiceImpl implements TravelsService{
 		if (rOptional.isPresent()) {
 			throw new TravelsException("This Travelservice is already available in database");
 		}
+	
+				User user=new User();
+
+				user.setUserType("Travels");
+				user.setUserPassword("Travels"+"-"+(int)Math.floor(Math.random()*(10)+1));
+				User savedUser=ur.save(user);
+				travels.setTravelsId(savedUser.getUserId());
+		
 		return repo.save(travels);
 	}
 	@Override
