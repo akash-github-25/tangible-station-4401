@@ -1,25 +1,25 @@
 package com.masai.bean;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class CurrentUserSession {
 	
-	@javax.persistence.Id
+	@Id
 	private Integer Id=0;
 
 	private Integer userId;
 	private String uuid;
 	
+	public CurrentUserSession() {
+		super();
+	}
+
 	public CurrentUserSession(Integer userId, String uuid) {
 		super();
 		this.userId = userId;
 		this.uuid = uuid;
-	}
-
-	public CurrentUserSession() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getUserId() {
@@ -43,6 +43,4 @@ public class CurrentUserSession {
 		return "CurrentUserSession [userId=" + userId + ", uuid=" + uuid + "]";
 	}
 	
-	
-
 }

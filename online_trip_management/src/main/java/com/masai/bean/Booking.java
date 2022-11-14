@@ -16,50 +16,37 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Booking {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bookingId;
 	private String bookingType;
 	private String description;
 	private String bookingTitle;
 	private LocalDate bookingDate;
+	private Integer userId;
 	
 
     @JsonIgnore
 	@OneToOne(cascade=CascadeType.ALL)
 	private PayementDetails payement;
 	
-	
-	private Integer userId;
-	
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	public User user;
-	
-//	
-//	@JsonIgnore
 	@ManyToOne
-//	@JoinColumn(name = "bookingId", referencedColumnName = "hotelId")
 	private Hotel hotel;
-	
-	
-	
-//	@JsonIgnore
+
 	@ManyToOne
-//	@JoinColumn(name = "bookingId", referencedColumnName = "packageId")
 	public Packages packages;
     
-//	
-//	@JsonIgnore
-	 @ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "bookingId", referencedColumnName = "vehicleId")
-	  public Vehicle vehicle;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	public Vehicle vehicle;
 
 	public Booking(Integer bookingId, String bookingType, String description, String bookingTitle,
-			LocalDate bookingDate, PayementDetails payement, Integer userId, Hotel hotel, Packages packages,
-			Vehicle vehicle) {
+					LocalDate bookingDate, PayementDetails payement, Integer userId, Hotel hotel, 
+					Packages packages,Vehicle vehicle) {
 		super();
 		this.bookingId = bookingId;
 		this.bookingType = bookingType;
@@ -76,7 +63,6 @@ public class Booking {
 	public Booking() {
 		super();
 		bookingDate=LocalDate.now();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getBookingId() {
@@ -158,8 +144,5 @@ public class Booking {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
-
-
-
 
 }

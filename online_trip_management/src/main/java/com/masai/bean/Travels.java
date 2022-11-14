@@ -12,40 +12,38 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Travels {
 	
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.	
- private Integer travelsId=0;
- private String travelsName;
- private String travelsEmail;
- private String travelsContact;
- private String travelsAddress;
+ 	private Integer travelsId=0;
+
+ 	private String travelsName;
+ 	private String travelsEmail;
+ 	private String travelsContact;
+ 	private String travelsAddress;
  
-// @JsonIgnore
- @OneToMany
- private List<Vehicle> vehicle = new ArrayList<>();
+
+ 	@OneToMany
+ 	private List<Vehicle> vehicle = new ArrayList<>();
  
 	@JsonIgnore
 	@OneToOne
 	private User user;
 
-	public Travels(String travelsName, String travelsEmail, String travelsContact,
-			String travelsAddress, List<Vehicle> vehicle, User user) {
+	public Travels() {
 		super();
-//		this.travelsId = travelsId;
+	}
+
+	public Travels(String travelsName, String travelsEmail, String travelsContact,String travelsAddress, List<Vehicle> vehicle, User user) {
+		super();
 		this.travelsName = travelsName;
 		this.travelsEmail = travelsEmail;
 		this.travelsContact = travelsContact;
 		this.travelsAddress = travelsAddress;
 		this.vehicle = vehicle;
 		this.user = user;
-	}
-
-	public Travels() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getTravelsId() {
@@ -103,6 +101,5 @@ public class Travels {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
 	
 }

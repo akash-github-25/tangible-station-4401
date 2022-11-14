@@ -18,117 +18,91 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Customer {
 	
-@Id
-//@GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.
+	@Id
+	private Integer customerId=0;
 
-private Integer customerId=0;
-private String customerName;
-private String customerAddress;
-private String customerMobile;
-private String customerEmail;
+	private String customerName;
+	private String customerAddress;
+	private String customerMobile;
+	private String customerEmail;
 
-@JsonIgnore
-@OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
-private List<Feedback> feedbacks = new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
+	private List<Feedback> feedbacks = new ArrayList<>();
 
-@JsonIgnore
-@OneToOne
-@JoinColumn(name = "customerId", referencedColumnName = "userId")
-private User user;
+	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name = "customerId", referencedColumnName = "userId")
+	private User user;
 
+	public Customer() {
+		super();
+	}
 
-public Customer() {
-	super();
-	// TODO Auto-generated constructor stub
-}
+	public Customer(String customerName, String customerAddress, String customerMobile,String customerEmail, List<Feedback> feedbacks, User user) {
+		super();
+		this.customerName = customerName;
+		this.customerAddress = customerAddress;
+		this.customerMobile = customerMobile;
+		this.customerEmail = customerEmail;
+		this.feedbacks = feedbacks;
+		this.user = user;
+	}
 
+	public Integer getCustomerId() {
+		return customerId;
+	}
 
-public Customer(String customerName, String customerAddress, String customerMobile,
-		String customerEmail, List<Feedback> feedbacks, User user) {
-	super();
-//	this.customerId = customerId;
-	this.customerName = customerName;
-	this.customerAddress = customerAddress;
-	this.customerMobile = customerMobile;
-	this.customerEmail = customerEmail;
-	this.feedbacks = feedbacks;
-	this.user = user;
-}
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
 
+	public String getCustomerName() {
+		return customerName;
+	}
 
-public Integer getCustomerId() {
-	return customerId;
-}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 
+	public String getCustomerAddress() {
+		return customerAddress;
+	}
 
-public void setCustomerId(Integer customerId) {
-	this.customerId = customerId;
-}
+	public void setCustomerAddress(String customerAddress) {
+		this.customerAddress = customerAddress;
+	}
 
+	public String getCustomerMobile() {
+		return customerMobile;
+	}
 
-public String getCustomerName() {
-	return customerName;
-}
+	public void setCustomerMobile(String customerMobile) {
+		this.customerMobile = customerMobile;
+	}
 
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
 
-public void setCustomerName(String customerName) {
-	this.customerName = customerName;
-}
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
 
+	public List<Feedback> getFeedbacks() {
+		return feedbacks;
+	}
 
-public String getCustomerAddress() {
-	return customerAddress;
-}
+	public void setFeedbacks(List<Feedback> feedbacks) {
+		this.feedbacks = feedbacks;
+	}
 
+	public User getUser() {
+		return user;
+	}
 
-public void setCustomerAddress(String customerAddress) {
-	this.customerAddress = customerAddress;
-}
-
-
-public String getCustomerMobile() {
-	return customerMobile;
-}
-
-
-public void setCustomerMobile(String customerMobile) {
-	this.customerMobile = customerMobile;
-}
-
-
-public String getCustomerEmail() {
-	return customerEmail;
-}
-
-
-public void setCustomerEmail(String customerEmail) {
-	this.customerEmail = customerEmail;
-}
-
-
-public List<Feedback> getFeedbacks() {
-	return feedbacks;
-}
-
-
-public void setFeedbacks(List<Feedback> feedbacks) {
-	this.feedbacks = feedbacks;
-}
-
-
-public User getUser() {
-	return user;
-}
-
-
-public void setUser(User user) {
-	this.user = user;
-}
-
-
-
-
-
-
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }

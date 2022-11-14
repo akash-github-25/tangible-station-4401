@@ -14,11 +14,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Hotel {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer hotelId;
+
 	private String hotelName;
 	private String hotelType;
 	private String hotelDescription;
@@ -26,23 +29,21 @@ public class Hotel {
 	private Integer hotelRent;
 	private String hotelStatus;
 	private Integer hotelRooms;
-//	private Integer BookingId;
 	
 	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL,mappedBy = "hotel")
 	private List<Booking> book=new ArrayList<>();
 	
 	@JsonIgnore
-	 @ManyToMany(cascade = CascadeType.ALL,mappedBy = "hotels")
-		public List<Packages> packages=new ArrayList<>();
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "hotels")
+	public List<Packages> packages=new ArrayList<>();
 
 	public Hotel() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Hotel(Integer hotelId, String hotelName, String hotelType, String hotelDescription, String hotelAddress,
-			Integer hotelRent, String hotelStatus, Integer hotelRooms, List<Booking> book, List<Packages> packages) {
+				Integer hotelRent, String hotelStatus, Integer hotelRooms, List<Booking> book, List<Packages> packages) {
 		super();
 		this.hotelId = hotelId;
 		this.hotelName = hotelName;
@@ -135,8 +136,5 @@ public class Hotel {
 	public void setPackages(List<Packages> packages) {
 		this.packages = packages;
 	}
-
-
-	
 
 }

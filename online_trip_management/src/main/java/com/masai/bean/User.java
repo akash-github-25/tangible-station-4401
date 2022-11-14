@@ -15,9 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // to autogenerate ID.
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
+
 	private String userType;
 	private String userPassword;
 	
@@ -32,10 +34,17 @@ public class User {
 	@JsonIgnore
 	@OneToOne
 	private Travels travels;
-	
-//	@JsonIgnore
-//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
-//	private List<Booking> Booking = new ArrayList<>();
+
+	public User() {
+		super();
+	}
+
+	public User(Integer userId, String userType, String userPassword) {
+		super();
+		this.userId = userId;
+		this.userType = userType;
+		this.userPassword = userPassword;
+	}
 	
 	public Integer getUserId() {
 		return userId;
@@ -60,20 +69,5 @@ public class User {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-
-	public User() {
-		super();
 		
-		// TODO Auto-generated constructor stub
-	}
-
-	public User(Integer userId, String userType, String userPassword) {
-		super();
-		this.userId = userId;
-		this.userType = userType;
-		this.userPassword = userPassword;
-	}
-	
-	
-	
 }
