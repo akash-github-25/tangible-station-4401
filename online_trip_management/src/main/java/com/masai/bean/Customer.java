@@ -20,10 +20,18 @@ public class Customer {
 	
 	@Id
 	private Integer customerId=0;
-
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private String customerName;
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private String customerAddress;
+	@Size(min=10, max=10)
+	@Pattern(regexp="[0-9]")
 	private String customerMobile;
+	@Email
 	private String customerEmail;
 
 	@JsonIgnore

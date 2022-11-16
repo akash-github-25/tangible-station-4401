@@ -19,10 +19,15 @@ public class Feedback {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer feedbackId;
-
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private String description;
+	@NotNull
 	private Integer rating;
+	@NotNull
 	private LocalDate submitDate;
+	@NotNull
 	private Integer CustomerId;
 	
 	@JsonIgnore

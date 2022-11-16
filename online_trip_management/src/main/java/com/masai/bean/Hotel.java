@@ -21,12 +21,26 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer hotelId;
-
+    @NotNull
+	@NotBlank
+	@NotEmpty
 	private String hotelName;
+    @NotNull
+	@NotBlank
+	@NotEmpty
 	private String hotelType;
+    @NotNull
+	@NotBlank
+	@NotEmpty
 	private String hotelDescription;
+    @NotNull
+	@NotBlank
+	@NotEmpty
 	private String hotelAddress;
 	private Integer hotelRent;
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private String hotelStatus;
 	private Integer hotelRooms;
 	

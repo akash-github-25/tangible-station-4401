@@ -3,6 +3,8 @@ package com.masai.bean;
 public class LoginDTO {
 	
 	private Integer userId;
+	@NotBlank
+	@NotEmpty
 	private String userPassword;
 
 	public LoginDTO(Integer userId, String userPassword) {

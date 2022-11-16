@@ -23,10 +23,25 @@ public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bookingId;
+	@NotNull(message = "please")
+	@NotBlank
+	@NotEmpty
 	private String bookingType;
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private String description;
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private String bookingTitle;
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private LocalDate bookingDate;
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private Integer userId;
 	
 

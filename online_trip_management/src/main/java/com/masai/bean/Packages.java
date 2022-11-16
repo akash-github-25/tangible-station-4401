@@ -25,8 +25,11 @@ public class Packages {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer packageId;
-
+	@NotBlank
+	@NotEmpty
     private String packageName;
+	@NotBlank
+	@NotEmpty
 	private String packageDescription;
 	private Integer packageType;
 	private Integer packageCost;

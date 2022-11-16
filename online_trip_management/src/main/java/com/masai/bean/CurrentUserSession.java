@@ -8,8 +8,11 @@ public class CurrentUserSession {
 	
 	@Id
 	private Integer Id=0;
-
+	@NotNull
 	private Integer userId;
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private String uuid;
 	
 	public CurrentUserSession() {

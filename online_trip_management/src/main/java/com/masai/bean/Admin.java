@@ -18,9 +18,14 @@ public class Admin {
 	
 	@Id
 	private Integer adminId=0;
-	
+	@NotNull
+	@NotBlank
+	@NotEmpty
 	private String adminName;
+	@Email
 	private String adminEmail;
+	@Size(min=10, max=10)
+	@Pattern(regexp="[0-9]")
 	private String adminMobile;
 	
 	@JsonIgnore
